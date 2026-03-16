@@ -1,0 +1,77 @@
+1) Networking
+- Definition: Networking means connecting two or more computers or devices so they can share data, files, and resources.
+- Example: Using Wi-Fi at home to connect your phone and laptop.
+
+ 2) Types of Networking
+- LAN (Local Area Network) – Covers small area like home, office, or school.
+- WAN (Wide Area Network) – Covers large area, connects cities or countries (example: Internet).
+- MAN (Metropolitan Area Network) – Covers a city.
+- PAN (Personal Area Network) – Very small, like Bluetooth between phone and headphones.
+
+ 3) Network Components
+- Router – Connects different networks.
+- Switch – Connects devices inside a LAN.
+- Hub – Simple device to connect computers (less smart than switch).
+- Cables – Physical medium to transfer data.
+- NIC (Network Interface Card) – Hardware inside computer to connect to network.
+- Access Point – Provides wireless connection.
+
+ 4) Protocol
+- Definition: A protocol is a set of rules that decides how data is transferred in a network.
+- Examples: HTTP (websites), FTP (file transfer), SMTP (email).
+
+ 5) IP Address
+- Definition: IP address is a unique number given to each device in a network.
+- Types:
+- IPv4 – 32-bit, looks like 192.168.1.1.
+- IPv6 – 128-bit, looks like 2001:db8::1.
+
+ 6) IP Address
+- Definition: An IP (Internet Protocol) address is a unique number given to every device in a network. It works like the "home address" of your computer or phone on the internet.
+- Purpose: It helps devices find and communicate with each other. Without IP addresses, data would not know where to go.
+
+ Types of IP Address
+- IPv4 (Internet Protocol version 4)
+- 32-bit number.
+- Written as four numbers separated by dots (example: 192.168.1.1).
+- Total possible addresses: around 4 billion.
+- IPv6 (Internet Protocol version 6)
+- 128-bit number.
+- Written in hexadecimal with colons (example: 2001:db8::1).
+- Provides a huge number of addresses (almost unlimited).
+
+ IP Address Ranges and Classes (IPv4)
+IP addresses are divided into classes to manage networks:
+- Class A: 1.0.0.0 – 126.255.255.255 → For very large networks.
+- Class B: 128.0.0.0 – 191.255.255.255 → For medium-sized networks.
+- Class C: 192.0.0.0 – 223.255.255.255 → For small networks.
+- Class D: 224.0.0.0 – 239.255.255.255 → Used for multicast (special group communication).
+- Class E: 240.0.0.0 – 255.255.255.255 → Reserved for experiments.
+
+Types of IP Address (based on usage)
+- Public IP: Used on the internet, unique worldwide.
+- Private IP: Used inside home or office networks (example: 192.168.x.x).
+- Static IP: Fixed, does not change.
+- Dynamic IP: Changes every time you connect to the internet.
+
+ 7) OSI Model (Open Systems Interconnection Model)
+- Definition: OSI model is a framework that explains how data travels from one computer to another in a network.
+- It has 7 layers, and each layer has its own job.
+Layers with Explanation:
+- Physical Layer – Deals with hardware like cables, switches, signals. Sends raw bits (0s and 1s).
+- Data Link Layer – Transfers data between two devices in same network. Handles error detection.
+- Network Layer – Decides the path for data using IP addresses.
+- Transport Layer – Ensures data is delivered correctly and completely (TCP/UDP).
+- Session Layer – Manages sessions (start, maintain, end communication).
+- Presentation Layer – Converts data format (encryption, compression, translation).
+- Application Layer – User interacts here (web browser, email, apps).
+
+ 8) Ports Number
+- Definition: Port numbers are like doors in a computer that allow different services to run.
+- Examples:
+- Port 80 → HTTP (websites)
+- Port 443 → HTTPS (secure websites)
+- Port 25 → Email (SMTP)
+- Why we use ports?
+- To identify which service or application should handle the data.
+- Without ports, computer won’t know if data is for browser, email, or another app.
