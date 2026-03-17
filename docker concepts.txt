@@ -1,0 +1,179 @@
+1. What is Docker?
+
+Docker is a platform to create, deploy, and run applications in containers.
+
+Problem solved: “It works on my machine”
+
+Solution: Docker makes sure your app runs the same everywhere.
+
+2. What is a Container?
+
+A container is a running instance of a Docker image.
+
+Think of it as a lightweight virtual machine that has everything the app needs (code, libraries, dependencies) but shares the host OS.
+
+Analogy:
+
+Image = blueprint / recipe
+
+Container = running instance / cake baked from recipe
+
+3. Docker Architecture
+
+Docker has 3 main components:
+
+Docker Client: The command-line tool you use (docker run, docker build)
+
+Docker Daemon (Engine): Background service that builds, runs, and manages containers
+
+Docker Registries: Stores Docker images (e.g., Docker Hub)
+
+Conceptual diagram:
+
+[Docker Client] ---> [Docker Engine/Daemon] ---> [Containers]
+                                  |
+                                  v
+                            [Docker Registry]
+4. Docker Image
+
+Immutable template used to create containers.
+
+Can be pulled from Docker Hub or built from a Dockerfile.
+
+Example commands:
+
+# Pull an image
+docker pull nginx
+
+# List images
+docker images
+
+# Remove image
+docker rmi nginx
+5. Docker Container
+
+Running instance of an image.
+
+Basic commands:
+
+# Run container
+docker run -d -p 8080:80 nginx
+
+# List running containers
+docker ps
+
+# List all containers
+docker ps -a
+
+# Stop container
+docker stop <container_id>
+
+# Remove container
+docker rm <container_id>
+6. Dockerfile
+
+Text file containing instructions to build an image.
+
+Example: Node.js app Dockerfile
+
+FROM node:18
+WORKDIR /app
+COPY package*.json ./
+RUN npm install
+COPY . .
+CMD ["node", "index.js"]
+
+Commands to build and run:
+
+# Build image from Dockerfile
+docker build -t myapp .
+
+# Run container
+docker run -p 3000:3000 myapp
+7. Docker Volume
+
+Persistent storage for containers.
+
+Data is retained even if the container is removed.
+
+Example commands:
+
+# Create a volume
+docker volume create mydata
+
+# Run container with volume
+docker run -v mydata:/app/data myapp
+
+# List volumes
+docker volume ls
+
+# Remove volume
+docker volume rm mydata
+8. Docker Network
+
+Connects multiple containers.
+
+Default network = bridge
+
+Example commands:
+
+# List networks
+docker network ls
+
+# Create network
+docker network create mynetwork
+
+# Run container on network
+docker run --network mynetwork -d myapp
+9. Docker Compose
+
+Tool to run multi-container applications.
+
+Uses docker-compose.yml.
+
+Example docker-compose.yml:
+
+version: "3"
+services:
+  web:
+    build: .
+    ports:
+      - "3000:3000"
+  db:
+    image: mongo
+
+Commands:
+
+docker-compose up
+docker-compose down
+docker-compose ps
+10. Docker Swarm
+
+Native Docker orchestration tool.
+
+For scaling apps, load balancing, managing multiple nodes.
+
+Commands:
+
+# Initialize swarm
+docker swarm init
+
+# Deploy stack
+docker stack deploy -c docker-compose.yml mystack
+
+# List services
+docker service ls
+11. Basic Cheat Sheet (Commands)
+Action	Command
+Pull image	docker pull <image>
+Build image	docker build -t <name> .
+List images	docker images
+Run container	docker run -d -p <host>:<container> <image>
+Stop container	docker stop <id>
+Remove container	docker rm <id>
+Create volume	docker volume create <name>
+List volumes	docker volume ls
+Create network	docker network create <name>
+List networks	docker network ls
+Compose up	docker-compose up
+Compose down	docker-compose down 
