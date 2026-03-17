@@ -3,7 +3,7 @@ Git
 
 Git is a distributed version control system used to track changes in source code and manage project history.
 
-👉 Key Points:
+ Key Points:
 
 Works offline
 
@@ -15,7 +15,7 @@ GitHub
 
 GitHub is a web-based platform used to host Git repositories.
 
-👉 Key Points:
+ Key Points:
 
 Stores code online
 
@@ -67,7 +67,7 @@ Requires network connection
 
 Examples: SVN, CVS
 
-❌ Disadvantages
+ Disadvantages
 
 No offline work
 
@@ -85,7 +85,7 @@ No single point of failure
 
 Example: Git
 
-✅ Advantages
+ Advantages
 
 Fast operations
 
@@ -125,7 +125,7 @@ Stores permanent commits
 
 Keeps full project history
 
-👉 Flow:
+ Flow:
 
 Working Directory → Staging Area → Repository
 5. Important Git Terminologies
