@@ -1,0 +1,276 @@
+Definition of Git & GitHub
+Git
+
+Git is a distributed version control system used to track changes in source code and manage project history.
+
+👉 Key Points:
+
+Works offline
+
+Fast and lightweight
+
+Supports branching and merging
+
+GitHub
+
+GitHub is a web-based platform used to host Git repositories.
+
+👉 Key Points:
+
+Stores code online
+
+Enables collaboration
+
+Provides features like pull requests, issues, CI/CD
+
+4. Why Git is Important in DevOps
+
+Backbone of CI/CD pipelines
+
+Integrates with Jenkins, GitHub Actions, GitLab CI
+
+Ensures latest code deployment
+
+Helps in rollback & tracking
+
+5. Git Three-Stage Architecture
+
+Working Directory – where you write code
+
+Staging Area – prepare files for commit
+
+Repository – stores permanent history
+
+Git & SCM – Structured Notes
+1. Source Code Management (SCM)
+
+SCM (Source Code Management) is used to track, manage, and control changes in source code over time.
+
+Why SCM is important?
+
+Multiple developers can work on the same project
+
+Tracks who changed what and when
+
+Allows rollback to previous versions
+
+Improves team collaboration & automation
+
+2. Types of SCM
+2.1 CVCS (Centralized Version Control System)
+
+Uses a single central server
+
+Developers get a working copy from server
+
+Requires network connection
+
+Examples: SVN, CVS
+
+❌ Disadvantages
+
+No offline work
+
+Single point of failure
+
+Slower collaboration
+
+2.2 DVCS (Distributed Version Control System)
+
+Each developer has a full copy (clone) of repository
+
+Supports offline work
+
+No single point of failure
+
+Example: Git
+
+✅ Advantages
+
+Fast operations
+
+Better branching & merging
+
+Safe and scalable
+
+3. Why Git is Important in DevOps
+
+Backbone of CI/CD pipelines
+
+Integrates with tools like Jenkins, GitHub Actions, GitLab CI
+
+Ensures latest code deployment
+
+Supports rollback & tracking
+
+Used in automation and release management
+
+4. Git Three-Stage Architecture
+
+Working Directory
+
+Where you write/edit code
+
+Changes are not tracked yet
+
+Staging Area (Index)
+
+Prepares files for commit
+
+Acts like a checkpoint
+
+Repository
+
+Stores permanent commits
+
+Keeps full project history
+
+👉 Flow:
+
+Working Directory → Staging Area → Repository
+5. Important Git Terminologies
+
+Repository
+
+Storage of project code
+
+Contains full history
+
+Working Directory
+
+Actual files on your system
+
+Server
+
+Stores remote repositories
+
+6. Commit
+
+A snapshot of changes
+
+Each commit has a unique ID (SHA-1 hash)
+
+40-character identifier
+
+git commit -m "your message"
+7. Commit ID
+
+Unique identifier for each commit
+
+Helps track:
+
+Who made changes
+
+What changed
+
+When changed
+
+8. Tags
+
+Used for version labeling (v1.0, v2.0)
+
+Do not change after creation
+
+git tag v1.0
+9. Snapshots
+
+Represents project state at a specific time
+
+Stores only changes (efficient storage)
+
+10. Push & Pull
+
+Push (Local → Remote)
+
+git push origin main
+
+Pull (Remote → Local)
+
+git pull origin main
+11. Git Branching (Important)
+
+Branch = Separate line of development
+
+Used for features, bug fixes
+
+Default branch: main or master
+
+git branch feature1
+git checkout feature1
+12. Branch Commands
+git branch                 # list branches
+git branch <name>          # create branch
+git checkout <name>        # switch branch
+git checkout -b <name>     # create + switch
+git branch -d <name>       # delete branch
+13. Merging Branches
+
+Combines code from one branch to another
+
+git merge feature1
+14. Merge Conflicts
+
+Occurs when:
+
+Same file is changed in multiple branches
+
+Steps to resolve:
+
+Open file
+
+Fix conflict manually
+
+Add file
+
+Commit
+
+15. Conflict Commands
+git log --merge
+git diff
+git merge --abort
+git reset
+git checkout <file>
+16. Cherry-Pick
+
+Apply a specific commit to another branch
+
+git cherry-pick <commit_id>
+17. Git Stash
+
+Temporarily saves uncommitted changes
+
+git stash
+git stash list
+git stash pop
+git stash drop
+18. Git Rebase
+
+Moves commits to a new base
+
+Keeps history clean
+
+git rebase main
+19. Git Squash
+
+Combine multiple commits into one
+
+git log --oneline
+git rebase -i HEAD~3
+
+(Change pick → squash)
+
+20. Git Fork
+
+Copy of a repository (mainly in open-source)
+
+Done using platforms like GitHub
+
+21. Essential Git Commands (Quick Revision)
+git init
+git clone <url>
+git add .
+git commit -m "message"
+git status
+git log
+git push
+git pull
