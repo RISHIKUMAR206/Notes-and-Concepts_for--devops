@@ -1,0 +1,255 @@
+Shell Scripting – Short Notes
+1. What is a Shell?
+
+A Shell is a program that acts as an interface between the user and the Linux operating system.
+It takes commands from the user and sends them to the kernel for execution.
+
+Common Shells
+
+bash (Bourne Again Shell) – most widely used
+
+sh
+
+ksh
+
+csh
+
+zsh
+
+2. What is a Shell Script?
+
+A Shell Script is a file that contains a series of Linux commands executed line by line by the shell.
+
+Uses
+
+Automate tasks
+
+Reduce repetitive work
+
+Perform system administration tasks
+
+Shell scripts usually have the .sh extension.
+
+3. Advantages of Shell Scripting
+
+Saves time through automation
+
+Easy to write and modify
+
+No compilation required
+
+Powerful for system administration
+
+Supports variables, loops, and conditions
+
+4. Creating a Shell Script
+
+Step 1 – Create file
+
+vi script.sh
+
+Step 2 – Write script
+
+#!/bin/bash
+echo "Hello World"
+
+Step 3 – Give execute permission
+
+chmod +x script.sh
+
+Step 4 – Run script
+
+./script.sh
+5. Shebang (#!)
+
+The Shebang is the first line of a shell script.
+It tells Linux which interpreter should run the script.
+
+Example
+
+#!/bin/bash
+
+Meaning:
+
+# → comment symbol
+
+! → special character
+
+/bin/bash → path of the Bash interpreter
+
+Without shebang, the script may not run correctly.
+
+6. Ways to Execute a Shell Script
+bash script.sh
+sh script.sh
+./script.sh
+. script.sh
+7. File Permissions in Scripts
+
+Linux permissions:
+
+r → read
+
+w → write
+
+x → execute
+
+Give execute permission:
+
+chmod 755 script.sh
+8. Case Sensitivity
+
+Linux is case-sensitive.
+
+Example
+
+name="Linux"
+Name="Unix"
+
+Both variables are different.
+
+9. File Naming Rules
+
+Maximum length → 255 characters
+
+Allowed → letters, numbers, underscore
+
+Avoid special characters
+
+Avoid system command names
+
+.sh extension recommended
+
+Examples
+
+backup.sh
+my_script_01.sh
+10. Comments in Shell Script
+
+Comments improve readability and are ignored by the shell.
+
+Single-line comment
+
+# This is a comment
+
+Multi-line comment
+
+<<COMMENT
+This is a
+multi-line comment
+COMMENT
+11. Variables in Shell Script
+
+A variable stores data that can be reused in the script.
+
+Types:
+
+System Variables
+
+User-defined Variables
+
+12. Variable Naming Rules
+
+Must start with letter or underscore
+
+Cannot start with a number
+
+No space around =
+
+Case-sensitive
+
+Correct
+
+course="DevOps"
+
+Wrong
+
+course = "DevOps"
+13. System Variables
+
+System variables are created by Linux and provide system information.
+
+Common variables
+
+Variable	Meaning
+$HOME	Home directory
+$USER	Current user
+$SHELL	Shell name
+$PWD	Present working directory
+$PATH	Command search path
+$BASH_VERSION	Bash version
+
+Show all variables
+
+env
+14. User-Defined Variables
+
+Created by the user inside scripts.
+
+Example
+
+#!/bin/bash
+course="DevOps"
+echo "Course name is $course"
+15. Command Line Arguments
+
+Arguments passed to the script during execution.
+
+Example
+
+sh script.sh Linux DevOps
+
+Special parameters
+
+Symbol	Meaning
+$0	Script name
+$1–$9	Arguments
+$#	Number of arguments
+$*	All arguments
+$@	All arguments separately
+$$	Process ID
+$?	Exit status
+16. $* vs $@
+$*	$@
+Treats arguments as one string	Treats arguments separately
+Used less often	More commonly used
+17. Strings in Shell Script
+
+A string is a sequence of characters containing letters, numbers, or symbols.
+
+18. Types of Quotes
+
+Single Quotes
+
+echo '$USER'
+
+Output → $USER
+
+(No variable expansion)
+
+Double Quotes
+
+echo "$USER"
+
+Output → username
+
+(Variable expansion allowed)
+
+Backticks
+
+echo `date`
+
+Executes the command inside.
+
+19. Escape Characters
+Escape	Meaning
+\n	New line
+\t	Tab
+\b	Backspace
+\r	Carriage return
+\	Backslash
+\a	Alert
+
+Example
+
+echo -e "Linux\nShell\nScript"
