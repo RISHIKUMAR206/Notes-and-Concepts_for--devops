@@ -2,169 +2,98 @@
 foundation concept of Linux 
 
 1. Linux Founder
-
 Linus Torvalds – A Finnish software engineer who created the Linux kernel and also developed Git.
 
 2. History of Linux
-
 Linux is a Unix-based, free and open-source operating system.
-
 It was first developed in 1991.
 
 3. Linux File System Hierarchy
-
 / – Root directory (starting point of the filesystem)
-
 /root – Home directory of the root user
-
 /bin – Basic user commands
-
 /sbin – System administration commands
-
 /dev – Device files
-
 /etc – Configuration files
-
 /usr – User applications and programs
-
 /var – Variable data such as logs
-
 /home – Home directories for users
-
 /boot – Boot loader and kernel files
-
 /mnt – Temporary mount directory
-
 /media – Removable media devices
-
 /opt – Optional software packages
-
 /tmp – Temporary files
 
 4. Basic Linux Commands
-
 pwd – Shows the current directory
-
 ls – Lists files and directories
-
 cd – Changes directory
-
 clear – Clears the terminal screen
-
 whoami – Shows the logged-in user
-
 history – Displays command history
-
 date – Shows system date and time
-
 uname – Displays kernel name
-
 uname -r – Shows kernel version
-
 
 Linux Training – User, Group & Permission Management
 
 1. User Management
-
 User management is used to create, manage, switch, and delete users in Linux.
-
 Common Commands:
-
 useradd shub – Create a new user
-
 grep shub /etc/passwd – Check user details
-
 passwd shub – Set or change user password
-
 su shub – Switch to another user
-
 userdel shub – Delete a user
-
 usermod -l devops shub – Change the login name
 
 2. Group Management
-
 Group management allows administrators to manage permissions for multiple users at once.
-
 Commands:
-
 groupadd ibmgrp – Create a new group
-
 gpasswd -a ajay ibmgrp – Add user to group
-
 gpasswd -d virat ibmgrp – Remove user from group
 
 3. Linux File Permissions
-
 Linux permissions control who can access files and directories.
 
 Permission Types:
-
 r – Read
-
 w – Write
-
 x – Execute
-
 Numeric Values:
-
 Read = 4
-
 Write = 2
-
 Execute = 1
-
 Example:
-
 chmod 751 /shub – Set file permissions using numeric values.
 
-
 Linux Administration – Short Notes
-
 1. Process, Service & Daemon
-
 Process
-
 A process is a program that is currently running in the system.
-
 One application can create multiple processes.
-
 Daemon
-
 A daemon is a background process that runs continuously.
-
 Waits for requests or system events.
-
 Examples: sshd, httpd
 
 Service
-
 A service is a program that provides functionality to other programs or users.
-
 Mostly runs on servers.
-
 Examples:
-
 Web service → httpd
-
 SSH service → sshd
-
 Network service → NetworkManager
 
 2. Service Management (systemctl)
-
 Service States
-
 Active – running
-
 Inactive – stopped
-
 Enabled – starts at system boot
-
 Disabled – does not start at boot
 
 Common Commands
-
 systemctl status sshd
 systemctl start sshd
 systemctl stop sshd
@@ -175,83 +104,47 @@ systemctl is-enabled sshd
 3. Package Management
 
 Package
-
 A compressed file containing:
-
 Application files
-
 Libraries
-
 Configuration files
-
 Example
-
 httpd-2.4.6-97.el7.x86_64.rpm
-
 Meaning:
-
 Name → httpd
-
 Version → 2.4.6
-
 Release → 97
-
 Architecture → x86_64
-
 Extension → rpm
 
 4. Package Installation Methods
-
 Standalone Installation
-
 Used for single systems
-
 Example: CD/DVD or .rpm file
-
 Network Installation
-
 Used for multiple systems
-
 Uses centralized repository (Repo)
 
 5. RPM (Red Hat Package Manager)
-
 Syntax
-
 rpm [option] package-name
-
 Common Options
-
 -i → install
-
 -v → verbose
-
 -h → progress
-
 -e → erase
-
 -q → query
-
 Example
-
 rpm -ivh httpd-2.4.6-97.el7.x86_64.rpm
-
 Limitations
-
 Does not resolve dependencies automatically.
 
 6. YUM (Yellowdog Updater Modified)
-
 YUM
-
 Advanced package manager.
-
 Automatically resolves dependencies.
-
 Used in RHEL, CentOS, Rocky Linux, AlmaLinux.
-
 Common Commands
-
 yum install httpd
 yum remove httpd
 yum update
@@ -261,16 +154,13 @@ yum repolist
 7. Create YUM Repository (Server)
 
 Step 1 – Mount ISO
-
 lsblk
 mount /dev/sr0 /mnt
 
 Step 2 – Copy Packages
-
 cp -rvf /mnt/Packages /var/www/html/
 
 Step 3 – Create Repo File
-
 vim /etc/yum.repos.d/server.repo
 [app]
 name=appstream
@@ -279,7 +169,6 @@ enabled=1
 gpgcheck=0
 
 Step 4 – Verify
-
 yum clean all
 yum repolist
 8. Configure YUM Client
@@ -292,26 +181,19 @@ gpgcheck=0
 yum clean all
 yum repolist
 yum install httpd
+
 9. Secure Shell (SSH)
-
 SSH is a secure protocol for remote login.
-
 Default Port → 22
-
 More secure than Telnet.
-
 Configuration File
-
 /etc/ssh/sshd_config
-
 Important parameters:
-
 PermitRootLogin yes
 PasswordAuthentication yes
-
 Restart SSH:
-
 systemctl restart sshd
+
 10. Disable Root Login via SSH
 vim /etc/ssh/sshd_config
 PermitRootLogin no
@@ -320,157 +202,95 @@ systemctl enable sshd
 11. Remote File Transfer
 
 SCP (Secure Copy)
-
 Local → Remote
-
 scp file.txt root@IP:/mnt/
 scp -r /india root@IP:/mnt/
 
 Remote → Local
-
 scp root@IP:/mnt/file.txt /root/Desktop/
 scp -r root@IP:/mnt/india /root/Desktop/
+
 12. RSYNC
-
 Used for fast file synchronization and backup.
-
 rsync -avh file.txt root@IP:/mnt/
 rsync -avh root@IP:/mnt/file.txt /root/Desktop/
+
 13. NIC Teaming
-
 NIC Teaming combines multiple network interfaces into one logical interface.
-
 Benefits:
-
 Load balancing
-
 High availability
-
 Fault tolerance
-
 If one NIC fails, another NIC continues the traffic.
 
 14. NIC Teaming Modes
-
 broadcast – send data on all NICs
-
 active-backup – one active, one backup
-
 round-robin – traffic sent sequentially
-
 loadbalance – distribute traffic evenly
 
 15. Configure NIC Teaming
-
 Install Tool
-
 yum install teamd
-
 Create Team Interface
-
 nmcli con add type team con-name Team1 ifname team0 config '{"runner":{"name":"activebackup"}}'
-
 Add Slave Interfaces
-
 nmcli con add type team-slave con-name Team1-slave1 ifname ens33 master Team1
 nmcli con add type team-slave con-name Team1-slave2 ifname ens34 master Team1
-
 Activate Team
-
 nmcli con up Team1
-
 Check Status
-
 teamdctl team0 state
-
 
 Linux Administration – Short Notes
 
 1. Access Control List (ACL)
-
 ACL (Access Control List) provides advanced permissions beyond standard Linux permissions.
 It allows administrators to give specific access to users or groups without changing file ownership.
-
 Common ACL Commands
-
 Check ACL permissions
-
 getfacl <file/directory>
 
 Example
-
 getfacl /devops
-
 Set ACL for a user
-
 setfacl -m u:username:rwx /directory
-
 Remove ACL from a user
-
 setfacl -x u:username /directory
-
 Set ACL for a group
-
 setfacl -m g:groupname:rwx /directory
-
 Remove ACL from a group
-
 setfacl -x g:groupname /directory
-
 Remove all ACL permissions
-
 setfacl -b /directory
+
 2. Regular Expressions & GREP
-
 Regular Expressions
-
 Special characters used for pattern searching and matching.
-
 GREP (Global Regular Expression Print)
-
 Used to search text patterns inside files.
-
 Common GREP Commands
-
 Search word in file
-
 grep root /etc/passwd
-
 Search in multiple files
-
 grep root /etc/passwd /etc/group
-
 Case-insensitive search
-
 grep -i root /etc/passwd
-
 Recursive search
-
 grep -r root /
-
 Invert match
-
 grep -v root /etc/passwd
-
 Count matching lines
-
 grep -c root /etc/passwd
-
 Show line numbers
-
 grep -n root /etc/passwd
-
 Lines starting with a word
-
 grep ^root /etc/passwd
-
 Lines ending with a word
-
 grep bash$ /etc/passwd
-
 Redirect output
-
 grep root /etc/passwd > /mnt/find.txt
+
 3. FIND Command
 
 The find command searches files and directories based on conditions like name, size, owner, or permissions.
